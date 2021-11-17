@@ -1,0 +1,27 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Make first full-stack course.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodvib2den/wetube-reloaded.git"
+  },
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js"
+  },
+  "author": "Jimin Park<gmean7@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goodvib2den/wetube-reloaded/issues"
+  },
+  "homepage": "https://github.com/goodvib2den/wetube-reloaded#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "nodemon": "^2.0.15"
+  }
+}
