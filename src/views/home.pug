@@ -1,0 +1,9 @@
+extends base.pug
+
+block content
+  h1 Welcome to Wetube trending videos.
+  ul
+    each video in videos
+      li=video
+    else
+      li Sorry notging found.

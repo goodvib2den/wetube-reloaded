@@ -1,19 +1,20 @@
-import express from "express";
+import express, { application } from "express";
+import morgan from "morgan";
+import globalRouter from "./routers/globalRouter";
+import videoRouter from "./routers/videoRouter";
+import userRouter from "./routers/userRouter";
 
 const PORT = 4000;
 
 const app = express();
+const logger = morgan("dev");
 
-const logger = (req, res, next) => {
-  console.log(` ${req.method} ${req.url}`);
-  next();
-};
-
-const handleHome = (req, res) => {
-  return res.send("We run server");
-};
-
-app.get("/", logger, handleHome);
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views");
+app.use(logger);
+app.use("/", globalRouter);
+app.use("/videos", videoRouter);
+app.use("/users", userRouter);
 
 const handleLinstening = () =>
   console.log(`✅ Server linstening on port http://localhost:${PORT} 🚀`);
