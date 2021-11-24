@@ -3,7 +3,7 @@ let videos = [
     title: "1 Video",
     rating: 5,
     comments: 2,
-    crfeatedAt: "2 minutes ago",
+    createdAt: "2 minutes ago",
     views: 1,
     id: 1,
   },
@@ -11,7 +11,7 @@ let videos = [
     title: "2 Video",
     rating: 5,
     comments: 2,
-    crfeatedAt: "2 minutes ago",
+    createdAt: "2 minutes ago",
     views: 59,
     id: 2,
   },
@@ -19,7 +19,7 @@ let videos = [
     title: "3 Video",
     rating: 5,
     comments: 2,
-    crfeatedAt: "2 minutes ago",
+    createdAt: "2 minutes ago",
     views: 50,
     id: 3,
   },
@@ -44,5 +44,24 @@ export const getEdit = (req, res) => {
 export const postEdit = (req, res) => {
   const { id } = req.params;
   const { title } = req.body;
+  videos[id - 1].title = title;
   return res.redirect(`/videos/${id}`);
+};
+
+export const getUpload = (req, res) => {
+  return res.render("upload", { pageTitle: "Upload video" });
+};
+
+export const postUpload = (req, res) => {
+  const { title } = req.body;
+  const newVideo = {
+    title,
+    rating: 0,
+    comments: 0,
+    createdAt: "Just Now",
+    views: 0,
+    id: videos.length + 1,
+  };
+  videos.push(newVideo);
+  return res.redirect("/");
 };
