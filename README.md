@@ -15,6 +15,10 @@
 - mongo DB
 - morgan
 
+#### **Hash password**
+
+- bcrypt
+
 <br>
 
 ---

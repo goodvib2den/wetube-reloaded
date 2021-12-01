@@ -12,6 +12,7 @@ const videoSchema = new mongoose.Schema({
   },
 });
 
+// Video hashtag middle ware
 videoSchema.static("formatHashtags", function (hashtags) {
   return hashtags
     .split(",")
