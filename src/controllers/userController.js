@@ -67,8 +67,11 @@ export const postLogin = async (req, res) => {
     });
   }
 
+  // 세션확인
+  req.session.loggedIn = true;
+  req.session.user = user;
+
   // 확인 시 로그인을 시킨다
-  console.log("User login soon!");
   return res.redirect("/");
 };
 
