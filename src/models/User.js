@@ -13,9 +13,7 @@ const userSchema = new mongoose.Schema({
 
 // User Join middle ware
 userSchema.pre("save", async function () {
-  console.log("User password", this.password);
   this.password = await bcrypt.hash(this.password, 5);
-  console.log("Hashed password", this.password);
 });
 
 const User = mongoose.model("User", userSchema);
