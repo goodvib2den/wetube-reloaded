@@ -223,4 +223,18 @@ export const postChangePassword = async (req, res) => {
   return res.redirect("/");
 };
 
-export const see = (req, res) => res.send("See");
+export const see = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+
+  // 404 error
+  if (!user) {
+    return res.status(HTTP_400).render("404", { pageTitle: "404 Error" });
+  }
+
+  // return last
+  return res.render("users/profile", {
+    pageTitle: user.name,
+    user,
+  });
+};
