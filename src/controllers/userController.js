@@ -226,17 +226,14 @@ export const postChangePassword = async (req, res) => {
 
 export const see = async (req, res) => {
   const { id } = req.params;
-  const user = await User.findById(id);
+  const user = await User.findById(id).populate("videos");
 
   if (!user) {
     return res.status(HTTP_400).render("404", { pageTitle: "404 Error" });
   }
 
-  const videos = await Video.find({ owner: user._id });
-
   return res.render("users/profile", {
     pageTitle: user.name,
     user,
-    videos,
   });
 };
