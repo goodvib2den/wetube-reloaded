@@ -7,6 +7,7 @@
 #### **Front-end**
 
 - js
+- webpack
 
 #### **Back-end**
 

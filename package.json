@@ -7,8 +7,8 @@
     "url": "git+https://github.com/goodvib2den/youtube-clone.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js",
-    "assets": "webpack --config webpack.config.js"
+    "dev:sever": "nodemon",
+    "dev:assets": "webpack"
   },
   "author": "Jimin Park<gmean7@gmail.com>",
   "license": "MIT",
@@ -34,6 +34,7 @@
     "@babel/preset-env": "^7.16.4",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.4.5",
     "nodemon": "^2.0.15",
     "sass": "^1.45.0",
     "sass-loader": "^12.4.0",
